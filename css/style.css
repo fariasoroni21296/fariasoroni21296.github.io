@@ -65,6 +65,27 @@ body {
     margin-bottom: 20px;
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+}
+
+.logo-container {
+    flex: 1;
+}
+
+.logo {
+    width: 130px;
+    height: auto;
+}
+
+.nav-buttons {
+    flex: 2;
+    text-align: right;
+}
+
 .bio {
     font-size: 16px;
     line-height: 1.6;
