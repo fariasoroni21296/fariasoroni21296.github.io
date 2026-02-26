@@ -18,13 +18,12 @@ body {
   align-items: center;
   padding: 25px 80px;
 }
-
-.logo {
-  font-weight: 700;
-  font-size: 22px;
-  color: #6a4fa3;
+.logo img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
 }
-
 .navbar ul {
   list-style: none;
   display: flex;
