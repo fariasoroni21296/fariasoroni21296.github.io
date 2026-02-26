@@ -1,40 +1,32 @@
-/* ===============================
-   GLOBAL RESET
-================================ */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===============================
-   BODY + BACKGROUND
-================================ */
+/* BODY + BACKGROUND */
 body {
   font-family: 'Inter', sans-serif;
   color: #111;
   text-align: center;
   line-height: 1.6;
 
-  background-image: url("images/background.jpg");
+  /* IMPORTANT FIX */
+  background: url("../images/background.jpg") no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
-/* Soft overlay for readability */
+/* Light overlay */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255,255,255,0.9);
   z-index: -1;
 }
 
-/* ===============================
-   NAVBAR
-================================ */
+/* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -42,18 +34,13 @@ body::before {
   padding: 25px 80px;
 }
 
-/* Logo */
 .logo img {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   object-fit: cover;
-  padding: 6px;
-  background: #f2ecfb;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Menu */
 .navbar ul {
   list-style: none;
   display: flex;
@@ -64,70 +51,59 @@ body::before {
   text-decoration: none;
   color: #111;
   font-weight: 500;
-  font-size: 15px;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 .navbar a:hover {
   color: #6a4fa3;
 }
 
-/* ===============================
-   HERO SECTION
-================================ */
+/* HERO */
 .hero {
   margin-top: 60px;
   padding: 40px 20px;
 }
 
-/* Profile Image */
 .hero img {
-  width: 230px;
-  height: 230px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   border: 6px solid #111;
   object-fit: cover;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
 }
 
 .hero h1 {
-  font-size: 48px;
-  margin-top: 25px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-size: 46px;
+  margin-bottom: 10px;
 }
 
 .subtitle {
-  font-size: 20px;
-  margin: 12px 0;
-  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .description {
-  max-width: 750px;
-  margin: 18px auto;
-  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto 30px;
   color: #444;
-  padding: 0 20px;
 }
 
-/* ===============================
-   BUTTONS
-================================ */
+/* BUTTONS */
 .buttons {
-  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .btn {
-  display: inline-block;
   background: #111;
   color: white;
   padding: 12px 28px;
   border-radius: 35px;
-  margin: 10px;
   text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .btn:hover {
@@ -135,29 +111,19 @@ body::before {
   transform: translateY(-3px);
 }
 
-/* ===============================
-   FOOTER
-================================ */
+/* FOOTER */
 footer {
   margin-top: 80px;
   padding: 30px;
   font-size: 14px;
-  color: #777;
+  color: #666;
 }
 
-/* ===============================
-   RESPONSIVE DESIGN
-================================ */
-@media (max-width: 992px) {
-  .navbar {
-    padding: 20px 40px;
-  }
-}
-
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
   }
 
   .navbar ul {
@@ -166,11 +132,6 @@ footer {
   }
 
   .hero h1 {
-    font-size: 34px;
-  }
-
-  .hero img {
-    width: 180px;
-    height: 180px;
+    font-size: 32px;
   }
 }
