@@ -1,23 +1,40 @@
-/* ==============================
-   Global Reset
-============================== */
+/* ===============================
+   GLOBAL RESET
+================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ===============================
+   BODY + BACKGROUND
+================================ */
 body {
   font-family: 'Inter', sans-serif;
-  background: #f9f7fc;
   color: #111;
   text-align: center;
   line-height: 1.6;
+
+  background-image: url("images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-/* ==============================
-   Navbar
-============================== */
+/* Soft overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.88);
+  z-index: -1;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -25,15 +42,18 @@ body {
   padding: 25px 80px;
 }
 
+/* Logo */
 .logo img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  object-fit: cover;
   padding: 6px;
   background: #f2ecfb;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
+/* Menu */
 .navbar ul {
   list-style: none;
   display: flex;
@@ -52,14 +72,15 @@ body {
   color: #6a4fa3;
 }
 
-/* ==============================
-   Hero Section
-============================== */
+/* ===============================
+   HERO SECTION
+================================ */
 .hero {
   margin-top: 60px;
   padding: 40px 20px;
 }
 
+/* Profile Image */
 .hero img {
   width: 230px;
   height: 230px;
@@ -87,11 +108,12 @@ body {
   margin: 18px auto;
   font-size: 16px;
   color: #444;
+  padding: 0 20px;
 }
 
-/* ==============================
-   Buttons
-============================== */
+/* ===============================
+   BUTTONS
+================================ */
 .buttons {
   margin-top: 40px;
 }
@@ -110,12 +132,12 @@ body {
 
 .btn:hover {
   background: #6a4fa3;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
-/* ==============================
-   Footer
-============================== */
+/* ===============================
+   FOOTER
+================================ */
 footer {
   margin-top: 80px;
   padding: 30px;
@@ -123,9 +145,9 @@ footer {
   color: #777;
 }
 
-/* ==============================
-   Responsive Design
-============================== */
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
 @media (max-width: 992px) {
   .navbar {
     padding: 20px 40px;
@@ -150,9 +172,5 @@ footer {
   .hero img {
     width: 180px;
     height: 180px;
-  }
-
-  .description {
-    padding: 0 20px;
   }
 }
