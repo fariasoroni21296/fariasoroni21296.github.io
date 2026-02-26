@@ -1,13 +1,14 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url("../images/bg.jpg") no-repeat center center fixed;
-    background-size: cover;
+    background: url("../images/background.jpg") no-repeat right center fixed;
+    background-size: contain;   /* Crop করবে না */
+    background-color: black;    /* Empty জায়গা কালো থাকবে */
     color: white;
 }
 
 .overlay {
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.6);
     min-height: 100vh;
 }
 
@@ -17,30 +18,28 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 60px;
+    padding: 25px 60px;
 }
 
 .logo {
     width: 120px;
 }
 
+/* Smooth text links */
+
 .nav-buttons a {
     text-decoration: none;
     color: white;
-    margin-left: 15px;
-    padding: 6px 12px;
-    border: 1px solid white;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: 0.3s;
+    margin-left: 25px;
+    font-size: 15px;
+    transition: 0.3s ease;
 }
 
 .nav-buttons a:hover {
-    background: #38bdf8;
-    color: black;
+    color: #38bdf8;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero {
     text-align: center;
@@ -52,7 +51,6 @@ body {
 .profile {
     width: 200px;
     border-radius: 50%;
-    border: 4px solid white;
     margin-bottom: 20px;
 }
 
