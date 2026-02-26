@@ -2,8 +2,8 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: url("../images/background.jpg") no-repeat right center fixed;
-    background-size: contain;   /* Crop করবে না */
-    background-color: black;    /* Empty জায়গা কালো থাকবে */
+    background-size: contain;   /* Image crop হবে না */
+    background-color: black;    /* Empty space black থাকবে */
     color: white;
 }
 
@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 .navbar {
     display: flex;
@@ -21,25 +21,35 @@ body {
     padding: 25px 60px;
 }
 
-.logo {
-    width: 120px;
+.logo-container {
+    flex: 1;
 }
 
-/* Smooth text links */
+.logo {
+    width: 130px;
+    height: auto;
+}
+
+/* Smooth text navigation */
+
+.nav-buttons {
+    flex: 2;
+    text-align: right;
+}
 
 .nav-buttons a {
     text-decoration: none;
     color: white;
     margin-left: 25px;
     font-size: 15px;
-    transition: 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .nav-buttons a:hover {
     color: #38bdf8;
 }
 
-/* HERO */
+/* ================= HERO SECTION ================= */
 
 .hero {
     text-align: center;
@@ -63,27 +73,6 @@ body {
     font-weight: 400;
     color: #38bdf8;
     margin-bottom: 20px;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 60px;
-}
-
-.logo-container {
-    flex: 1;
-}
-
-.logo {
-    width: 130px;
-    height: auto;
-}
-
-.nav-buttons {
-    flex: 2;
-    text-align: right;
 }
 
 .bio {
