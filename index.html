@@ -41,6 +41,12 @@
 body { margin: 0; }
 img { max-width: 100%; }
 [hidden] { display: none !important; }
+.memorial { margin: 14px 0 4px; display: flex; align-items: center; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; max-width: 460px; }
+.memorial img { width: 120px; height: 120px; object-fit: cover; object-position: center 20%; border-radius: 8px; flex-shrink: 0; }
+.memorial figcaption { display: grid; gap: 2px; min-width: 0; }
+.memorial strong { font-family: var(--display); font-size: 20px; }
+.memorial span { color: var(--muted); font-size: 15px; }
+.memorial .mono { font-size: 12.5px; }
 .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 180px; gap: 10px; }
 .gallery figure { margin: 0; overflow: hidden; border-radius: 8px; background: var(--line); }
 .gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -447,6 +453,14 @@ footer { padding-block: 0 48px; font-family: var(--mono); font-size: 12.5px; col
         <div class="row"><span class="when">Since 2013</span><div>
           <h3>Justice for Rehan</h3>
           <p class="where">Campaign for accountability</p>
+          <figure class="memorial">
+            <img src="rehan.jpg" alt="Rehan Ahsan, wearing an I Love Bangladesh t-shirt" loading="lazy">
+            <figcaption>
+              <strong>Rehan Ahsan</strong>
+              <span>BUET CSE, 2009 batch</span>
+              <span class="mono">Martyred 5 May 2013 · Shapla Chattar</span>
+            </figcaption>
+          </figure>
           <ul>
             <li>My brother, Rehan Ahsan (BUET CSE, 2009 batch), was killed at Shapla Chattar on 5 May 2013. My family and I have campaigned for justice ever since.</li>
             <li>We declined government compensation and asked instead for a scholarship in his name. BUET's CSE Department held a memorial for him in 2024.</li>
