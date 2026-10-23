@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Faria Soroni | Data Scientist and Human Rights Activist</title>
+<meta name="description" content="Portfolio of Engr. Faria Soroni: data science, human rights research, publications, advocacy and experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column with a sticky section index on wide screens; sections read like a research CV turned into a page. */
+:root {
+  --bg: #f2f4f6;
+  --surface: #ffffff;
+  --fg: #16202e;
+  --muted: #5a6676;
+  --line: #d8dee5;
+  --accent: #0d6b6b;
+  --accent-soft: #e0efee;
+  --award: #a86d10;
+  --award-soft: #f6ead3;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e141b; --surface: #151d27; --fg: #e5eaf0; --muted: #9aa6b4; --line: #26313e;
+    --accent: #5fc7bf; --accent-soft: #15302f; --award: #e3b257; --award-soft: #33270f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e141b; --surface: #151d27; --fg: #e5eaf0; --muted: #9aa6b4; --line: #26313e;
+  --accent: #5fc7bf; --accent-soft: #15302f; --award: #e3b257; --award-soft: #33270f;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+.hero-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: center; }
+.portrait { width: 240px; aspect-ratio: 1; object-fit: cover; object-position: center 30%; border-radius: 50%; border: 4px solid var(--surface); box-shadow: 0 0 0 1px var(--line); }
+@media (max-width: 720px) { .hero-top { grid-template-columns: minmax(0, 1fr); gap: 24px; } .portrait { width: 150px; order: -1; } }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.65;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Hero */
+header.hero { padding-block: 64px 40px; border-bottom: 1px solid var(--line); }
+.eyebrow {
+  font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 14px;
+}
+h1 {
+  font-family: var(--display); font-weight: 700; font-size: clamp(44px, 9vw, 92px);
+  line-height: .98; letter-spacing: -.02em; margin: 0 0 22px; text-wrap: balance;
+}
+h1 .post { font-size: .38em; font-weight: 500; letter-spacing: 0; color: var(--muted); white-space: nowrap; }
+.pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.pillar { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: grid; gap: 8px; align-content: start; }
+.pillar p { font-size: 15.5px; }
+@media (max-width: 760px) { .pillars { grid-template-columns: minmax(0, 1fr); } }
+.lede { font-size: clamp(18px, 2.2vw, 21px); max-width: 60ch; margin: 0 0 28px; color: var(--fg); }
+.links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 40px; }
+.btn {
+  font-family: var(--display); font-weight: 500; font-size: 15px; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px;
+  border: 1px solid var(--line); border-radius: 999px; color: var(--fg); background: var(--surface);
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.btn.primary:hover { color: var(--bg); opacity: .9; }
+
+.facts {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0;
+  border-top: 1px solid var(--line); padding-top: 22px;
+}
+.fact { padding-right: 16px; }
+.fact b {
+  display: block; font-family: var(--display); font-weight: 700; font-size: clamp(30px, 4.5vw, 44px);
+  line-height: 1; font-variant-numeric: tabular-nums;
+}
+.fact span { font-family: var(--mono); font-size: 12.5px; color: var(--muted); letter-spacing: .03em; }
+@media (max-width: 640px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; } }
+
+/* Body layout */
+.layout { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 56px; padding-block: 48px 72px; }
+nav.index { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; }
+nav.index ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+nav.index a {
+  font-family: var(--mono); font-size: 13px; color: var(--muted); text-decoration: none;
+  display: block; padding: 4px 0;
+}
+nav.index a:hover { color: var(--accent); }
+@media (max-width: 860px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  nav.index { display: none; }
+}
+
+section { padding-block: 0 56px; scroll-margin-top: 24px; }
+h2 {
+  font-family: var(--display); font-weight: 700; font-size: 30px; letter-spacing: -.01em;
+  margin: 0 0 22px; line-height: 1.15; text-wrap: balance;
+}
+h3 { font-family: var(--display); font-weight: 500; font-size: 20px; margin: 0; line-height: 1.3; text-wrap: balance; }
+p { margin: 0; }
+.muted { color: var(--muted); }
+.mono { font-family: var(--mono); font-size: 13px; letter-spacing: .02em; }
+
+/* Interests */
+.interests { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.chip {
+  font-family: var(--mono); font-size: 13px; padding: 5px 11px; border-radius: 6px;
+  background: var(--accent-soft); color: var(--accent);
+}
+.about p + p { margin-top: 14px; }
+.about p { max-width: 66ch; }
+
+/* Timeline rows (education, experience) */
+.rows { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.row {
+  display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 20px;
+  padding-block: 20px; border-bottom: 1px solid var(--line);
+}
+.row .when { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 4px; font-variant-numeric: tabular-nums; }
+.row .where { color: var(--muted); font-style: italic; margin-top: 2px; }
+.row ul { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 4px; }
+@media (max-width: 560px) { .row { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
+
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.project {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: 22px; display: flex; flex-direction: column; gap: 12px;
+}
+.project p { font-size: 16px; }
+.project .venue { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin-top: auto; }
+.badge {
+  align-self: flex-start; font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
+  padding: 3px 9px; border-radius: 999px; background: var(--award-soft); color: var(--award);
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+@media (max-width: 680px) { .projects { grid-template-columns: minmax(0, 1fr); } }
+
+/* Publications */
+.pub-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.pub-head h2 { margin: 0; }
+.filters { display: flex; gap: 6px; flex-wrap: wrap; }
+.filters button {
+  font-family: var(--mono); font-size: 12.5px; padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--muted);
+}
+.filters button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+ol.pubs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); counter-reset: pub; }
+ol.pubs li {
+  display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px;
+  padding-block: 16px; border-bottom: 1px solid var(--line);
+}
+ol.pubs li .n { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.pub-title { font-weight: 600; }
+.authors { font-size: 15.5px; color: var(--muted); }
+.authors strong { color: var(--fg); font-weight: 600; }
+.pub-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 6px; font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+.pub-meta a { word-break: break-all; }
+.cite { color: var(--accent); }
+.award-tag { color: var(--award); }
+
+/* Awards */
+.awards { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.awards li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; padding-block: 12px; border-bottom: 1px solid var(--line); }
+.awards .yr { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.awards li.top .what { font-weight: 600; }
+.awards li.top .yr { color: var(--award); }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 32px; }
+.skills h3 { font-size: 16px; margin-bottom: 8px; }
+.skills ul { margin: 0; padding-left: 18px; font-size: 16px; display: grid; gap: 2px; }
+@media (max-width: 620px) { .skills { grid-template-columns: minmax(0, 1fr); } }
+
+/* Contact */
+.contact {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 28px;
+  display: grid; gap: 16px;
+}
+.email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.email { font-family: var(--mono); font-size: 16px; user-select: all; word-break: break-all; }
+.copy {
+  font-family: var(--mono); font-size: 12.5px; padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--bg); color: var(--fg);
+}
+footer { padding-block: 0 48px; font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top"><div>
+    <p class="eyebrow">Data Scientist · Human Rights Activist · Dhaka, Bangladesh</p>
+    <h1>Engr. Faria Soroni<span class="post">, MIEB</span></h1>
+    <p class="lede">I use data science to document human rights violations, study patterns of injustice and support evidence-based advocacy. I am a Graduate Research Assistant at BRAC University, where I am studying for an M.Sc. in Data Science, and my earlier research spans computer vision, AR/VR and human-centered AI.</p>
+    <div class="links">
+      <a class="btn primary" href="https://scholar.google.com/citations?user=Dxw32icAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a class="btn" href="https://www.linkedin.com/in/faria-soroni-5a80b0119/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://fariasoroni21296.wordpress.com/" target="_blank" rel="noopener">Blog</a>
+      <a class="btn" href="#contact">Contact</a>
+    </div>
+    </div>
+    <img class="portrait" src="photo.jpg" alt="Faria Soroni" onerror="this.remove()">
+    </div>
+    <div class="facts">
+      <div class="fact"><b>14</b><span>publications</span></div>
+      <div class="fact"><b>129</b><span>citations</span></div>
+      <div class="fact"><b>2</b><span>IEEE best paper awards</span></div>
+      <div class="fact"><b>8</b><span>international conferences</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="index" aria-label="Sections">
+    <ol>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#advocacy">Advocacy</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="about" class="about">
+      <h2>About</h2>
+      <p>My research sits where data science, human rights and public policy meet. I use computational methods, data analysis and qualitative research to document state violence and turn evidence into stories that policymakers, media and communities can use to demand accountability.</p>
+      <p>My academic work began at North South University under Dr. Mohammad Monirujjaman Khan, where I contributed to four funded projects and presented papers at IEEE conferences in the United States, Canada, India and Egypt. I have also worked in ICT security at LankaBangla Finance, led a free online school during COVID-19, and founded the dialogue platform Eight Onwards.</p>
+      <p>I come from a family of educators, freedom fighters and public servants, and I want to use knowledge and technology for a more just, equitable and accountable Bangladesh.</p>
+      <div class="pillars">
+        <div class="pillar"><h3>Research and data for social impact</h3><p>Documenting human rights violations and studying patterns of state violence with data, to support evidence-based advocacy.</p></div>
+        <div class="pillar"><h3>Advocacy and public engagement</h3><p>Taking part in movements for justice and democratic rights, and speaking for those who are silenced.</p></div>
+        <div class="pillar"><h3>Building narratives for change</h3><p>Turning complex findings into accessible writing, public discussions and collaborations.</p></div>
+      </div>
+      <div class="interests" aria-label="Research interests">
+        <span class="chip">Human rights data</span>
+        <span class="chip">Public policy</span>
+        <span class="chip">Human-centered AI</span>
+        <span class="chip">Explainable AI (XAI)</span>
+        <span class="chip">Computer vision</span>
+        <span class="chip">Natural language processing</span>
+        <span class="chip">HCI</span>
+        <span class="chip">AR / VR for education</span>
+        <span class="chip">Data science</span>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Selected research</h2>
+      <div class="projects">
+        <article class="project">
+          <span class="badge">Best Paper Award</span>
+          <h3>Hand Gesture-Based Virtual Blackboard Using Webcam</h3>
+          <p>My undergraduate thesis. A webcam tracks the user's hand and recognises four gestures, turning the air in front of the screen into a blackboard for writing letters and numbers.</p>
+          <div class="tags"><span>PyTorch</span><span>OpenCV</span><span>NumPy</span><span>Pandas</span></div>
+          <p class="venue">IEEE IEMCON 2021 · Vancouver, Canada</p>
+        </article>
+        <article class="project">
+          <span class="badge">Best Paper Award</span>
+          <h3>Education System for Bangladesh Using AR, VR and AI</h3>
+          <p>A mobile and web learning platform. AR brings textbook images to life as 3D models, VR offers safe simulated practice, and an AI tutor recommends what each student should study next.</p>
+          <div class="tags"><span>Augmented reality</span><span>Virtual reality</span><span>Personalised learning</span></div>
+          <p class="venue">IEEE World AIIoT Congress 2021 · Seattle, USA</p>
+        </article>
+        <article class="project">
+          <h3>Markerless Location-Based AR for Showcasing Deals</h3>
+          <p>A client-server mobile app that uses computer vision and object recognition to place nearby deals directly into the user's surroundings.</p>
+          <div class="tags"><span>Computer vision</span><span>Mobile AR</span></div>
+          <p class="venue">ICCTA 2021 · Alexandria, Egypt · Springer LNNS vol. 426</p>
+        </article>
+        <article class="project">
+          <h3>Health Passport: Patient Medical Records App</h3>
+          <p>A mobile app where patients store and manage their medical history and share it with healthcare providers, including in emergencies.</p>
+          <div class="tags"><span>Mobile health</span><span>Patient engagement</span></div>
+          <p class="venue">IEEE World AIIoT Congress 2021 · Seattle, USA</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="pub-head">
+        <h2>Publications</h2>
+        <div class="filters" role="group" aria-label="Filter publications">
+          <button type="button" id="f-all" data-f="all" aria-pressed="true">All 14</button>
+          <button type="button" id="f-first" data-f="first" aria-pressed="false">First author</button>
+          <button type="button" id="f-cited" data-f="cited" aria-pressed="false">Cited</button>
+        </div>
+      </div>
+      <ol class="pubs" id="pubs">
+        <li data-first="1" data-cited="1"><span class="n">[8]</span><div>
+          <p class="pub-title">Hand Gesture Based Virtual Blackboard Using Webcam</p>
+          <p class="authors"><strong>F. Soroni</strong>, S. A. Sajid, M. N. H. Bhuiyan, J. Iqbal, M. M. Khan</p>
+          <div class="pub-meta"><span>IEEE IEMCON 2021, Vancouver</span><span class="award-tag">Best Paper</span><span class="cite">Cited by 3</span><a href="https://doi.org/10.1109/IEMCON53756.2021.9623181" target="_blank" rel="noopener">10.1109/IEMCON53756.2021.9623181</a></div>
+        </div></li>
+        <li data-cited="1"><span class="n">[1]</span><div>
+          <p class="pub-title">Education System for Bangladesh Using Augmented Reality, Virtual Reality and Artificial Intelligence</p>
+          <p class="authors">H. Khan, <strong>F. Soroni</strong>, S. J. Sadek Mahmood, N. Mannan, M. M. Khan</p>
+          <div class="pub-meta"><span>IEEE World AIIoT 2021, Seattle</span><span class="award-tag">Best Paper</span><span class="cite">Cited by 4</span><a href="https://doi.org/10.1109/AIIoT52608.2021.9454247" target="_blank" rel="noopener">10.1109/AIIoT52608.2021.9454247</a></div>
+        </div></li>
+        <li data-first="1" data-cited="1"><span class="n">[2]</span><div>
+          <p class="pub-title">GERAM BAZAR, A Mobile Application and Website Interface E-commerce</p>
+          <p class="authors"><strong>F. Soroni</strong>, M. A. Bari, M. M. Khan</p>
+          <div class="pub-meta"><span>IEEE World AIIoT 2021, Seattle</span><span class="cite">Cited by 3</span><a href="https://doi.org/10.1109/AIIoT52608.2021.9454245" target="_blank" rel="noopener">10.1109/AIIoT52608.2021.9454245</a></div>
+        </div></li>
+        <li data-first="1" data-cited="1"><span class="n">[3]</span><div>
+          <p class="pub-title">RentBd: An Exclusive Fashion Rental Service</p>
+          <p class="authors"><strong>F. Soroni</strong>, M. T. Mahmud, S. Chowdhury, M. M. Khan</p>
+          <div class="pub-meta"><span>IEEE World AIIoT 2021, Seattle</span><span class="cite">Cited by 3</span><a href="https://doi.org/10.1109/AIIoT52608.2021.9454243" target="_blank" rel="noopener">10.1109/AIIoT52608.2021.9454243</a></div>
+        </div></li>
+        <li data-cited="1"><span class="n">[4]</span><div>
+          <p class="pub-title">Development of a Mobile Application for Patient's Medical Record and History</p>
+          <p class="authors">M. T. Mahmud, <strong>F. Soroni</strong>, M. M. Khan</p>
+          <div class="pub-meta"><span>IEEE World AIIoT 2021, Seattle</span><span class="cite">Cited by 7</span><a href="https://doi.org/10.1109/AIIoT52608.2021.9454227" target="_blank" rel="noopener">10.1109/AIIoT52608.2021.9454227</a></div>
+        </div></li>
+        <li><span class="n">[5]</span><div>
+          <p class="pub-title">Development of Smart Height Measuring Scale</p>
+          <p class="authors">J. Alam, B. S. Chowdhury, T. Mahmud, <strong>F. Soroni</strong>, M. M. Khan</p>
+          <div class="pub-meta"><span>ICCCNT 2021, Kharagpur</span><a href="https://doi.org/10.1109/ICCCNT51525.2021.9579637" target="_blank" rel="noopener">10.1109/ICCCNT51525.2021.9579637</a></div>
+        </div></li>
+        <li><span class="n">[6]</span><div>
+          <p class="pub-title">Design of a Low-Cost Wearable Heart and Respiratory Rate Measurement Device Using an Arduino and Bluetooth Module</p>
+          <p class="authors">M. M. Khan, T. Mahmud, <strong>F. Soroni</strong>, M. Alam, M. Hussain, A. Amin</p>
+          <div class="pub-meta"><span>ICCCNT 2021, Kharagpur</span><a href="https://doi.org/10.1109/ICCCNT51525.2021.9579536" target="_blank" rel="noopener">10.1109/ICCCNT51525.2021.9579536</a></div>
+        </div></li>
+        <li data-cited="1"><span class="n">[7]</span><div>
+          <p class="pub-title">'BACHAO': A One Click Personal Safety Device</p>
+          <p class="authors">S. R. Masum, S. H. Salim, Z. Hussain, <strong>F. Soroni</strong>, T. Mahmud, M. M. Khan</p>
+          <div class="pub-meta"><span>ICCCNT 2021, Kharagpur</span><span class="cite">Cited by 3</span><a href="https://doi.org/10.1109/ICCCNT51525.2021.9579726" target="_blank" rel="noopener">10.1109/ICCCNT51525.2021.9579726</a></div>
+        </div></li>
+        <li><span class="n">[9]</span><div>
+          <p class="pub-title">Development of a Toxic Food Ingredients Detector</p>
+          <p class="authors">T. Tabassum, <strong>F. Soroni</strong>, E. A. Sojib, M. M. H. Shihab, M. M. Khan</p>
+          <div class="pub-meta"><span>IEEE IEMCON 2021, Vancouver</span><a href="https://doi.org/10.1109/IEMCON53756.2021.9623196" target="_blank" rel="noopener">10.1109/IEMCON53756.2021.9623196</a></div>
+        </div></li>
+        <li><span class="n">[10]</span><div>
+          <p class="pub-title">Development of an Online Based Babysitting System: Bonne</p>
+          <p class="authors">M. A. Obaidah, <strong>F. Soroni</strong>, M. M. Khan</p>
+          <div class="pub-meta"><span>IEEE UEMCON 2021, New York</span><a href="https://doi.org/10.1109/UEMCON53757.2021.9666483" target="_blank" rel="noopener">10.1109/UEMCON53757.2021.9666483</a></div>
+        </div></li>
+        <li data-cited="1"><span class="n">[11]</span><div>
+          <p class="pub-title">Development of a Hybrid Power Generation System</p>
+          <p class="authors">M. A. Obaidah, <strong>F. Soroni</strong>, M. M. Khan</p>
+          <div class="pub-meta"><span>IEEE UEMCON 2021, New York</span><span class="cite">Cited by 1</span><a href="https://doi.org/10.1109/UEMCON53757.2021.9666682" target="_blank" rel="noopener">10.1109/UEMCON53757.2021.9666682</a></div>
+        </div></li>
+        <li><span class="n">[12]</span><div>
+          <p class="pub-title">Microcontroller and Mobile App based Garments Environment Monitoring System for Workers</p>
+          <p class="authors">M. Mobin Hossain, N. Mukta, N. Akter, T. Tazin, <strong>F. Soroni</strong>, M. M. Khan</p>
+          <div class="pub-meta"><span>ICCMC 2022, Erode</span><a href="https://doi.org/10.1109/ICCMC53470.2022.9754110" target="_blank" rel="noopener">10.1109/ICCMC53470.2022.9754110</a></div>
+        </div></li>
+        <li data-cited="1"><span class="n">[13]</span><div>
+          <p class="pub-title">Research and Development of an E-commerce with Sales Chatbot</p>
+          <p class="authors">M. Hossain, M. Habib, M. Hassan, <strong>F. Soroni</strong>, M. M. Khan</p>
+          <div class="pub-meta"><span>IEEE World AIIoT 2022, Seattle</span><span class="cite">Cited by 2</span><a href="https://doi.org/10.1109/AIIoT54504.2022.9817272" target="_blank" rel="noopener">10.1109/AIIoT54504.2022.9817272</a></div>
+        </div></li>
+        <li><span class="n">[14]</span><div>
+          <p class="pub-title">Markerless Location-Based Augmented Reality Application for Showcasing Deals</p>
+          <p class="authors">M. M. Khan, <strong>F. Soroni</strong></p>
+          <div class="pub-meta"><span>Book chapter · Topical Drifts in Intelligent Computing (ICCTA 2021), Springer LNNS vol. 426</span><a href="https://doi.org/10.1007/978-981-19-0745-6_14" target="_blank" rel="noopener">10.1007/978-981-19-0745-6_14</a></div>
+        </div></li>
+      </ol>
+      <p class="mono muted" style="margin-top:14px">All papers were presented orally. Numbers follow the order in my CV.</p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="rows">
+        <div class="row"><span class="when">2025 – now</span><div>
+          <h3>Graduate Research Assistant</h3><p class="where">BRAC University</p>
+          <ul>
+            <li>Research in data science, human rights and public policy.</li>
+            <li>Using computational and qualitative methods to document human rights violations and study patterns of state violence.</li>
+          </ul>
+        </div></div>
+        <div class="row"><span class="when">2020 – now</span><div>
+          <h3>Research Assistant</h3><p class="where">North South University</p>
+          <ul>
+            <li>Worked on 4 multidisciplinary projects funded by local and international grants.</li>
+            <li>Analysed data, ran literature reviews to find research gaps, and presented findings.</li>
+            <li>Presented papers at 8 international conferences; prepared progress reports for funders.</li>
+          </ul>
+        </div></div>
+        <div class="row"><span class="when">2024 – now</span><div>
+          <h3>Founding Member</h3><p class="where">Eight Onwards</p>
+          <ul>
+            <li>Supervise an online podcast for open discussion of politics, economics, culture and society.</li>
+            <li>Highlight diverse perspectives and untold narratives, and challenge bias and misinformation through debate and critical analysis.</li>
+          </ul>
+        </div></div>
+        <div class="row"><span class="when">2022 – 2023</span><div>
+          <h3>Business Support Officer, ICT Security and Risk</h3><p class="where">LankaBangla Finance PLC</p>
+          <ul>
+            <li>Administered Active Directory, Windows Server, Outlook Mail Server and ESET antivirus and endpoint encryption servers.</li>
+            <li>Maintained data centre operations and responded to emergency cyber incidents.</li>
+            <li>Kept the company's cyberspace secure for employees and prepared security reports.</li>
+          </ul>
+        </div></div>
+        <div class="row"><span class="when">2020 – 2021</span><div>
+          <h3>Chief Executive Officer</h3><p class="where">Free Schooling Bangladesh</p>
+          <ul>
+            <li>Led a free online school during COVID-19 for students who could not afford to continue their studies.</li>
+            <li>Taught and prepared students for exams, and kept the platform safe and well organised.</li>
+          </ul>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="advocacy" class="about">
+      <h2>Advocacy and writing</h2>
+      <p>Alongside research, I am an activist for justice and accountability. For me, silence was never an option.</p>
+      <div class="rows" style="margin-top:22px">
+        <div class="row"><span class="when">Since 2013</span><div>
+          <h3>Justice for Rehan</h3>
+          <p class="where">Campaign for accountability</p>
+          <ul>
+            <li>My brother, Rehan Ahsan (BUET CSE, 2009 batch), was killed at Shapla Chattar on 5 May 2013. My family and I have campaigned for justice ever since.</li>
+            <li>We declined government compensation and asked instead for a scholarship in his name. BUET's CSE Department held a memorial for him in 2024.</li>
+            <li>Filed a case at the International Crimes Tribunal seeking accountability for state violence.</li>
+          </ul>
+        </div></div>
+        <div class="row"><span class="when">2015 – 2024</span><div>
+          <h3>Student and citizen movements</h3>
+          <ul>
+            <li>No VAT on Education protests, 2015</li>
+            <li>Road Safety movement, 2018</li>
+            <li>Anti-Quota student protest during the July Revolution, 2024</li>
+          </ul>
+        </div></div>
+        <div class="row"><span class="when">In the press</span><div>
+          <ul>
+            <li><a href="https://www.thedailystar.net/news/bangladesh/news/waiver-stole-justice-3887676" target="_blank" rel="noopener">"Waiver stole justice"</a>, <span class="muted">The Daily Star</span></li>
+            <li><a href="https://missingperspectives.com/posts/south-asia-women-activists/" target="_blank" rel="noopener">South Asian women activists</a>, <span class="muted">Missing Perspectives</span></li>
+          </ul>
+        </div></div>
+        <div class="row"><span class="when">Writing</span><div>
+          <ul>
+            <li><a href="https://fariasoroni21296.wordpress.com/2025/11/21/the-language-odyssey-how-nlp-has-evolved-1960-2025/" target="_blank" rel="noopener">The Language Odyssey: How NLP Has Evolved, 1960–2025</a></li>
+            <li><a href="https://fariasoroni21296.wordpress.com/2025/04/09/when-home-becomes-a-prison-the-silent-crisis-of-child-abuse/" target="_blank" rel="noopener">When Home Becomes a Prison: The Silent Crisis of Child Abuse</a></li>
+            <li><a href="https://fariasoroni21296.wordpress.com/2026/07/27/my-brother-believed-in-tomorrow-but-his-tomorrow-was-stolen-by-bullets/" target="_blank" rel="noopener">My brother believed in tomorrow, but his tomorrow was stolen by bullets</a></li>
+            <li><a href="https://fariasoroni21296.wordpress.com/" target="_blank" rel="noopener">More on my blog, My Canvas, My Writings</a></li>
+          </ul>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="rows">
+        <div class="row"><span class="when">2025 – now</span><div>
+          <h3>M.Sc. in Computer Science and Engineering</h3><p class="where">BRAC University</p>
+          <ul><li>Specialisation: Data Science · CGPA 3.57</li></ul>
+        </div></div>
+        <div class="row"><span class="when">2021</span><div>
+          <h3>B.Sc. in Computer Science and Engineering</h3><p class="where">North South University</p>
+          <ul><li>Specialisation: Artificial Intelligence</li></ul>
+        </div></div>
+        <div class="row"><span class="when">2014</span><div>
+          <h3>Higher Secondary Certificate, Science</h3><p class="where">Holy Cross College</p>
+          <ul><li>GPA 5.00 / 5.00</li></ul>
+        </div></div>
+        <div class="row"><span class="when">2012</span><div>
+          <h3>Secondary School Certificate, Science</h3><p class="where">Holy Cross Girls' High School</p>
+          <ul><li>GPA 5.00 / 5.00</li></ul>
+        </div></div>
+        <div class="row"><span class="when">Tests</span><div>
+          <p><strong>IELTS 7.0</strong> <span class="muted">(L 7.5 · R 6.0 · W 6.5 · S 7.0)</span></p>
+          <p><strong>GRE 300</strong> <span class="muted">(Quant 158 · Verbal 142)</span></p>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <h2>Awards and honours</h2>
+      <ul class="awards">
+        <li class="top"><span class="yr">2021</span><span class="what">Best Paper Award, IEEE IEMCON, Vancouver, for "Hand Gesture Based Virtual Blackboard Using Webcam"</span></li>
+        <li class="top"><span class="yr">2021</span><span class="what">Best Paper Award, IEEE World AIIoT Congress, Seattle, for "Education System for Bangladesh Using AR, VR and AI"</span></li>
+        <li><span class="yr">2018</span><span class="what">2nd Runner-up, Cyber Security Challenge, Daffodil International University</span></li>
+        <li><span class="yr">2015</span><span class="what">172nd place, ACM ICPC National Region</span></li>
+        <li><span class="yr">2013</span><span class="what">2nd Runner-up, Genetic Engineering and Biotechnology Olympiad, University of Dhaka</span></li>
+        <li><span class="yr">2013</span><span class="what">2nd Runner-up, Research Presentation, Children Science Congress</span></li>
+        <li><span class="yr">2012</span><span class="what">2nd Runner-up, Science Fair, Holy Cross College</span></li>
+        <li><span class="yr">2011</span><span class="what">Honourable Mention, National Chemistry Olympiad</span></li>
+        <li><span class="yr">2011</span><span class="what">Champion, Chemistry Olympiad, St. Joseph Higher Secondary School</span></li>
+        <li><span class="yr">2010</span><span class="what">Champion, Science Project Display, Holy Cross Girls' High School</span></li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div><h3>Data science and AI</h3><ul>
+          <li>Python: Pandas, NumPy, Matplotlib</li>
+          <li>TensorFlow, PyTorch</li>
+          <li>Computer vision with OpenCV</li>
+          <li>NLP: preprocessing, embeddings, classification, language modelling</li>
+          <li>Explainable AI and model interpretability</li>
+        </ul></div>
+        <div><h3>Human-centred computing</h3><ul>
+          <li>Human-computer interaction</li>
+          <li>Human-centred AI and user-centred design</li>
+          <li>Usability, trust, fairness and explainability</li>
+        </ul></div>
+        <div><h3>Programming and web</h3><ul>
+          <li>C++, Java, Python, PHP</li>
+          <li>HTML, CSS, Bootstrap, JavaScript</li>
+          <li>Laravel</li>
+        </ul></div>
+        <div><h3>Systems and security</h3><ul>
+          <li>Windows Server, Active Directory (AD DS)</li>
+          <li>Identity and privileged access management</li>
+          <li>ESET antivirus and endpoint encryption servers</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact">
+        <p>I'm open to research collaborations, PhD opportunities and roles in AI and data science.</p>
+        <div class="email-row">
+          <span class="email" id="email">soroni.faria@gmail.com</span>
+          <button type="button" class="copy" id="copy-email">Copy email</button>
+        </div>
+        <div class="links" style="margin:0">
+          <a class="btn" href="https://scholar.google.com/citations?user=Dxw32icAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="btn" href="https://www.linkedin.com/in/faria-soroni-5a80b0119/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://www.facebook.com/fariasoroni" target="_blank" rel="noopener">Facebook</a>
+          <a class="btn" href="https://fariasoroni21296.wordpress.com/" target="_blank" rel="noopener">Blog</a>
+        </div>
+        <p class="muted" style="font-size:15px">References available on request.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer><div class="wrap">© 2026 Faria Soroni</div></footer>
+
+<script>
+(function () {
+  const buttons = document.querySelectorAll('.filters button');
+  const items = document.querySelectorAll('#pubs li');
+  buttons.forEach(b => b.addEventListener('click', () => {
+    buttons.forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+    const f = b.dataset.f;
+    items.forEach(li => { li.hidden = f !== 'all' && !li.dataset[f]; });
+  }));
+
+  const copyBtn = document.getElementById('copy-email');
+  copyBtn.addEventListener('click', () => {
+    const text = document.getElementById('email').textContent;
+    const done = () => { copyBtn.textContent = 'Copied'; setTimeout(() => copyBtn.textContent = 'Copy email', 1800); };
+    const fallback = () => {
+      const r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      copyBtn.textContent = 'Press Ctrl+C';
+    };
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</body>
+</html>
