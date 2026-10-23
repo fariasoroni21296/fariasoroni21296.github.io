@@ -41,6 +41,11 @@
 body { margin: 0; }
 img { max-width: 100%; }
 [hidden] { display: none !important; }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 180px; gap: 10px; }
+.gallery figure { margin: 0; overflow: hidden; border-radius: 8px; background: var(--line); }
+.gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery .g-tall { grid-row: span 2; }
+@media (max-width: 560px) { .gallery { grid-template-columns: minmax(0, 1fr); grid-auto-rows: 220px; } .gallery .g-tall { grid-row: auto; } }
 .hero-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: center; }
 .portrait { width: 240px; aspect-ratio: 1; object-fit: cover; object-position: center 30%; border-radius: 50%; border: 4px solid var(--surface); box-shadow: 0 0 0 1px var(--line); }
 @media (max-width: 720px) { .hero-top { grid-template-columns: minmax(0, 1fr); gap: 24px; } .portrait { width: 150px; order: -1; } }
